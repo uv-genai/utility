@@ -1,0 +1,4 @@
+export BEFORE_LLAMA_CPP_PATH=$PATH
+export BEFORE_LLAMA_CPP_LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export PATH=~/.opt/llama.cpp/bin:$PATH
+export LD_LIBRARY_PATH=~/.opt/llama.cpp/lib64:$LD_LIBRARY_PATH
