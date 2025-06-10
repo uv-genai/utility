@@ -6,6 +6,8 @@
 #SBATCH --time=1-00:00:00
 #SBATCH --nodes=1
 #SBATCH --partition=gpu
+module use /software/setonix/unsupported
+module load rocm/6.3.2
+export LD_LIBRARY_PATH=$HOME/.opt/llama.cpp/lib64:$LD_LIBRARY_PATH
 cp ~/.cache/llama.cpp/unsloth_DeepSeek-R1-0528-GGUF_Q4_K_M_DeepSeek-R1-0528-Q4_K_M-0000* /tmp
-srun llama-server -m /tmp/unsloth_DeepSeek-R1-0528-GGUF_Q4_K_M_DeepSeek-R1-0528-Q4_K_M-00001-of-00009.gguf -ngl 90 --host 0.0.0.0 \
-	unsloth_DeepSeek-R1-0528-GGUF_Q4_K_M_DeepSeek-R1-0528-Q4_K_M-00001-of-00009
+srun ~/.opt/llama.cpp/bin/llama-server -m /tmp/unsloth_DeepSeek-R1-0528-GGUF_Q4_K_M_DeepSeek-R1-0528-Q4_K_M-00001-of-00009.gguf -ngl 90 --host 0.0.0.0
