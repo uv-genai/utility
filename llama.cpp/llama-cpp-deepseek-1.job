@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#SBATCH --job-name=llama.cpp
+#SBATCH --account=pawsey0001-gpu
+#SBATCH --reservation=PAWSEY_GPU_COS_TESTING
+#SBATCH --exclusive
+#SBATCH --time=1-00:00:00
+#SBATCH --nodes=1
+#SBATCH --partition=gpu
+cp ~/.cache/llama.cpp/unsloth_DeepSeek-R1-0528-GGUF_Q4_K_M_DeepSeek-R1-0528-Q4_K_M-0000* /tmp
+srun llama-server -m /tmp/unsloth_DeepSeek-R1-0528-GGUF_Q4_K_M_DeepSeek-R1-0528-Q4_K_M-00001-of-00009.gguf -ngl 90 --host 0.0.0.0 \
+	unsloth_DeepSeek-R1-0528-GGUF_Q4_K_M_DeepSeek-R1-0528-Q4_K_M-00001-of-00009
