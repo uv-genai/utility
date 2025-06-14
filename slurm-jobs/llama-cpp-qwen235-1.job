@@ -9,5 +9,6 @@
 module use /software/setonix/unsupported
 module load rocm/6.3.2
 export LD_LIBRARY_PATH=$HOME/.opt/llama.cpp/lib64:$LD_LIBRARY_PATH
-cp ~/.cache/llama.cpp/unsloth_Qwen3-235B-A22B-GGUF_Q8_0_Qwen3-235B-A22B-Q8_0-0000* /tmp
-srun ~/.opt/llama.cpp/bin/llama-server -m /tmp/unsloth_Qwen3-235B-A22B-GGUF_Q8_0_Qwen3-235B-A22B-Q8_0-00001-of-00006.gguf -ngl 100 --host 0.0.0.0
+#cp ~/.cache/llama.cpp/unsloth_Qwen3-235B-A22B-GGUF_Q8_0_Qwen3-235B-A22B-Q8_0-0000* /tmp
+#srun ~/.opt/llama.cpp/bin/llama-server -m /tmp/unsloth_Qwen3-235B-A22B-GGUF_Q8_0_Qwen3-235B-A22B-Q8_0-00001-of-00006.gguf -ngl 999 --no-mmap --host 0.0.0.0
+srun ~/.opt/llama.cpp/bin/llama-server -hf unsloth/Qwen3-235B-A22B-GGUF:Q8_0 -ngl 999 --no-mmap --host 0.0.0.0
