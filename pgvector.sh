@@ -1,0 +1,2 @@
+#DATABASE_URL=postgres://postgres:passwd@localhost:5432/postgres
+singularity run --env POSTGRES_PASSWORD=passwd --env PGHOST=0.0.0.0 -B ./data:/var/lib/postgresql/data -B ./postgresql:/var/run/postgresql -B ./app:/app pgvector.sif
